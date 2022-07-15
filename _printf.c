@@ -1,27 +1,28 @@
 #include "main.h"
 
 /**
- * _printf - a function that acts like the printf()
- *
- * @format : the format to be printed
- *
- * Return: number of characters printed
+ * _printf - prints the specified formats
+ * @format: type of argument passed
+ * Return: anything passed
  */
-
 int _printf(const char *format, ...)
 {
-	va_list list;
-	int length = 0;
+	va_list args;
+	int printed_char;
+	f_types check[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_percentage},
+		{"i", print_integer},
+		{"d", print_integer},
+		{NULL, NULL}
+	};
 
-	length = 0;
-
+	va_start(args, format);
 	if (format == NULL)
 		return (-1);
+	printed_char = selector(format, check, args);
 
-	va_start(list, format);
-
-	length = format_checker(format, list);
-	va_end(list);
-
-	return (length);
+	va_end(args);
+	return (printed_char);
 }
