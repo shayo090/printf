@@ -3,12 +3,12 @@
 /**
  * print_binary - function that prints a binary from an integer input
  *
- * @args : arguments passed into _printf()
+ * @list : arguments passed into _printf()
  *
  * Return: number of characters printed
  */
 
-int _print_binary(va_list args)
+int print_binary(va_list list)
 {
 	int x, b, new;
 
@@ -16,7 +16,7 @@ int _print_binary(va_list args)
 	b = 0;
 	new = 0;
 
-	new = va_arg(args, int);
+	new = va_arg(list, int);
 	x = new;
 
 	if (new < 0)

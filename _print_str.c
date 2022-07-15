@@ -1,20 +1,35 @@
 #include "main.h"
-#include <stdarg>
 
 /**
- * _print_str - A function that prints a string
- * @args: string to print
- * Return: i
+ * print_string - prints string
+ * @list : list of arguments passed
+ * Return: 6
  */
 
-int _print _str(va_list args)
+int print_string(va_list list)
 {
-	char *str = va_arg(args, char *);
-	int i = 0;
+	int i;
+	char *arg;
 
-	if (str == NULL)
-		str = "(null)";
-	while (str[i])
-		_putchar(str[i++]);
-	return (i);
+	arg = va_arg(list, char *);
+
+	i = 0;
+	if (arg != NULL)
+	{
+		while (arg[i])
+		{
+			_putchar(arg[i]);
+			i++;
+		}
+
+		return (i);
+	}
+
+	_putchar('(');
+	_putchar('n');
+	_putchar('u');
+	_putchar('l');
+	_putchar('l');
+	_putchar(')');
+	return (6);
 }
